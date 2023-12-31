@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Loading...2024</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- font-family: 'Oswald', sans-serif; -->
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    'Oswald': ['Oswald', 'sans-serif'],
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .number {
+            transition: all 1s ease-in-out;
+        }
+
+        .dot span:nth-child(1) {
+            animation: blink 1s infinite;
+        }
+        
+        .dot span:nth-child(2) {
+            animation: blink 1s infinite 0.2s;
+        }
+
+        .dot span:nth-child(3) {
+            animation: blink 1s infinite 0.4s;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen flex justify-center items-center">
+        <div class="flex flex-col items-center">
+            <div class="flex relative">
+                <div
+                    class="bg-black border-l-[8px] rounded-l-xl rounded-b-xl rounded-t-xl border-t-[8px] border-b-[8px] border-[#EF8806]">
+                    <span class="text-[6rem] px-6 text-white font-Oswald">2</span>
+                </div>
+                <div class="bg-black border-t-[8px] border-b-[8px] rounded-t-xl rounded-b-xl border-[#EF8806]">
+                    <span class="text-[6rem] px-7 text-white font-Oswald rounded-xl">0</span>
+                </div>
+                <div class="bg-black border-t-[8px] border-b-[8px] rounded-t-xl rounded-b-xl border-[#EF8806]">
+                    <span class="text-[6rem] px-7 text-white font-Oswald rounded-xl">2</span>
+                </div>
+                <div
+                    class="bg-black border-t-[8px] border-b-[8px] border-r-[8px] rounded-t-xl   rounded-b-xl border-[#EF8806]">
+                    <span
+                        class="block text-[6rem] px-7 text-white font-Oswald rounded-xl number transition ease-in-out duration-700">
+                        3
+                    </span>
+                </div>
+                <div class="bg-black h-1 w-11/12 left-4 absolute top-[5rem]"></div>
+            </div>
+            <h1 class="text-[2.6rem] font-bold  mt-10 uppercase font-Oswald text-[#E78E2D] flex">
+                Loading 
+                <div class="mx-2 -mt-2 dot">
+                    <span class="text-[#E78E2D] text-[3rem]">.</span>
+                    <span class="text-[#E78E2D] text-[3rem]">.</span>
+                    <span class="text-[#E78E2D] text-[3rem]">.</span>
+                </div>
+            </h1>
+            <div class="mt-10">
+                <h2 class="text-[2rem] text-start">হায়াত কমে গেলো...</h2>
+                <h3 class="text-[2rem] text-start">আরো একবছর। আস্তাগফিরুল্লা-হ</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            run();
+            setInterval(function () {
+                run();
+            }, 5000);
+        });
+
+
+        const run = () => {
+            const number = $(".number");
+            setTimeout(function () {
+                number.addClass("translate-y-[-100%]");
+            }, 3000);
+            setTimeout(function () {
+                number.removeClass("translate-y-[-100%]");
+                const number_value = number.text() == 3 ? 4 : 3;
+                number.text(number_value);
+            }, 4000);
+        };
+    </script>
+</body>
+
+</html>
